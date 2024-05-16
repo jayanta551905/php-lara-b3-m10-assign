@@ -22,12 +22,17 @@ class Book {
 
     // TODO: Add borrowBook method
     public function brrowBook() {
-
+        if ($this->availableCopies > 0) {
+            $this->availableCopies--;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // TODO: Add returnBook method
     public function returnBook() {
-
+        $this->availableCopies++;
     }
 
 }
