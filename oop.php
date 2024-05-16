@@ -52,13 +52,18 @@ class Member {
     }
 
     // TODO: Add borrowBook method
-    public function borrowBook() {
-
+    public function borrowBook($book) {
+        if ($book->brrowBook()) {
+            echo $this->getName() . " borrowed " . $book->getTitle() . ".\n";
+        } else {
+            echo $this->getName() . " cannot borrow " . $book->getTitle() . ".\n";
+        }
     }
 
     // TODO: Add returnBook method
-    public function returnBook() {
-
+    public function returnBook($book) {
+        $book->returnBook();
+        echo $this->getName() . "returned " . $book->getTitle() . ".\n";
     }
 
 }
@@ -70,14 +75,23 @@ class Member {
 // TODO: Create 2 books with the following properties
 //Book 1 - Name: The Great Gatsby, Available Copies: 5.
 //Book 2 - Name: To Kill a Mockingbird, Available Copies: 3.
+$book1 = new Book("The Great Gatsby", 5);
+$book2 = new Book("To Kill a Mockingbird", 3);
 
 // TODO: Create 2 members with the following properties
 //Member 2 - Name: Jane Smith
 //Member 1 - Name: John Doe
+$member1 = "John Doe";
+$member2 = "Jane Smith";
 
-// TODO: Apply Borrow book method to each member
+// TODO: Apply Borrow book method to each
+
+// $member1->borrowBook($book1);
+// $member2->borrowBook($book2);
 
 // TODO: Print Available Copies with their names:
+echo "Available Copies of '" . $book1->getTitle() . "': " . $book1->getAvailableCopies() . "\n";
+echo "Available Copies of '" . $book2->getTitle() . "': " . $book2->getAvailableCopies() . "\n";
 
 ?>
 
